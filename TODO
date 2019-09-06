@@ -14,8 +14,18 @@
 
 
 2019SEP06
+* requires the foillowing
+
+  file      description
+  ---------------------------------------
+  USAGE     how I use the code
+  setup.py  for install
+  tox.ini   for sanity
+
 * new code proposed to log uploads to avoid duplication.
 * new install script required.
+
+
 
 2019AUG11
 * IP

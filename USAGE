@@ -1,0 +1,39 @@
+ ____           ____    ___                __         
+/\  _`\        /\  _`\ /\_ \    __        /\ \        
+\ \ \L\ \__  __\ \ \L\_\//\ \  /\_\    ___\ \ \/'\    
+ \ \ ,__/\ \/\ \\ \  _\/ \ \ \ \/\ \  /'___\ \ , <    
+  \ \ \/\ \ \_\ \\ \ \/   \_\ \_\ \ \/\ \__/\ \ \\`\  
+   \ \_\ \/`____ \\ \_\   /\____\\ \_\ \____\\ \_\ \_\
+    \/_/  `/___/> \\/_/   \/____/ \/_/\/____/ \/_/\/_/
+             /\___/                                   
+             \/__/       
+
+ My quick hack to get images from my machine to flickr
+ adding some metadata along the way.
+
+2019SEP06
+* a typical usage pattern
+
+a) files dumped into a directory
+
+   /2019/2019SEP/2019SEPXX/d
+
+  d is a download directory and has multiple large files in it.
+
+b) process files in download directory
+
+  files are:
+
+     resized
+     modified for white balance
+     renamed
+     placed in ../u/ directory
+
+c) uploaded using pyflick
+- todays upload for example:
+
+   python3 upload.py -i $HOME/work/flickr/2019/2019SEP/2019SEP05/u1/*.jpg 
+                     -d "Doing stuff in the last week of winter. Planting." 
+                     -g "bootload 2019 2019SEP 2019SEP05 spring planting outside"
+
+
