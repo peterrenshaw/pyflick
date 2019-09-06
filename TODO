@@ -14,7 +14,7 @@
 
 
 2019SEP06
-* requires the foillowing
+* work that needs to be done:
 
   status file      description
   ---------------------------------------
@@ -22,9 +22,14 @@
   0      setup.py  for install
   0      tox.ini   for sanity
 
-* new code proposed to log uploads to avoid duplication.
-* new install script required.
+* new code proposed to add images to selected albums
+- have no clue how, investigate
 
+* new code proposed to log uploads to avoid duplication.
+- thought this out in README
+
+* new install script required.
+- check old apps.
 
 
 2019AUG11
