@@ -1,0 +1,98 @@
+2019SEP06
+* proposed upgrade to test for the following:
+- log the directory path and files
+- this can be used to do a quick check if files are being uploaded
+- also gives log of what has/has not been added
+* reasons to do this:
+- I want a more reliable way to point the tool at a filepath and know 
+  the files I point to are uploaded if needed, left if they are already 
+  existing
+* how
+- there are two immediate ways I can think of:
+ 
+  a) log files uploaded and check against this log uploading
+
+  b) check the unique file ID when uploading against uploaded files
+     this could also be done a number of ways. Download the metadata
+     and do a check against this file OR do it online and wait...
+
+- I'll have to think about this because I could use a combination of 
+  both ideas.
+* proposed change
+
+  ./upload.py -i $HOME/work/flickr/2019/2019AUG/2019AUG11/u/2019AUG1121* 
+              -g "bootload 2019 2019AUG 2019AUG11 winter sun blue colde camellia flowers" 
+              -d "One cold winter day in August."
+              -j
+              -l 
+- the ^-l^ command logs the file information to a log file with suggested information:
+
+  date: date uploaded in epoch
+  filepath: yyyy/yyyymmm/yyyymmm/
+  upload path: u, u1, u0 etc.
+  files: list of files in path
+
+- the date uploaded is important because sometimes I upload multiple uploads at different
+  times. 
+- file format should be JSON 
+
+
+2019AUG11
+* uploading
+- note the -i using regex like paths
+- the description, -d is the same for all 
+- need to work on constants in -g or tags
+
+  ./upload.py -i $HOME/work/flickr/2019/2019AUG/2019AUG11/u/2019AUG1121* 
+              -g "bootload 2019 2019AUG 2019AUG11 winter sun blue colde camellia flowers" 
+              -d "One cold winter day in August."
+              -j
+
+* added sample_upload.py
+- <https://stuvel.eu/flickrapi-doc/4-uploading.html>
+
+* added CLI input for images to upload
+* added CLI from ip/ directory
+
+* install new repository
+- <https://github.com/sybrenstuvel/flickrapi>
+
+* lets try this again checklist:
+
+- documentation
+- code quality
+- tests
+- work?
+
+* below documentation found in ip/README
+
+* filename generation   
+- a filename is generated from current time and rendered as a string.
+- each filename is unique
++ calculate now in UTC as datetime
++ build filename as string using a format
+
+* information on image:
+* image is selected by image type [jpg,jpeg,gif,png]
+* an image has a filepath, filename, file extension
+* image has a list of operations needed to process
+- resize
+- rotate
+- aspect ratio applied
+- white balance
+
+
+
+2016JAN21
+
+* examples
+  <https://bitbucket.org/sybren/flickrapi/src/875f0705db20743580364706a13bba4cb0d60d7e/doc/2-calling.rst?at=default&fileviewer=file-view-default>
+
+* using Python FLickr API Kit <https://stuvel.eu/flickrapi>
+- source <http://pypi.python.org/pypi/flickrapi>
+
+* install '$ sudo pip3 install flickrapi'
+* located at </usr/local/lib/python3.4/dist-packages/>
+* docs at <https://bitbucket.org/sybren/flickrapi>
+
+
