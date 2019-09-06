@@ -16,11 +16,11 @@
 2019SEP06
 * requires the foillowing
 
-  file      description
+  status file      description
   ---------------------------------------
-  USAGE     how I use the code
-  setup.py  for install
-  tox.ini   for sanity
+  1      USAGE     how I use the code
+  0      setup.py  for install
+  0      tox.ini   for sanity
 
 * new code proposed to log uploads to avoid duplication.
 * new install script required.
