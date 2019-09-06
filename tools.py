@@ -4,7 +4,8 @@
 
 #======
 # name: tools.py
-# date: 2019AUG11
+# date: 2019SEP06
+#       2019AUG11
 #       2016FEB03
 # prog: pr
 # desc: tools for image processing

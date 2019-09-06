@@ -3,7 +3,8 @@
 
 #======
 # name: login.py
-# date: 2016JAN21
+# date: 2019SEP06
+#       2016JAN21
 # prog: pr
 # desc: test login for flickr api
 # urls: <https://docs.python.org/3/library/json.html>

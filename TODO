@@ -1,3 +1,21 @@
+
+ ____           ____    ___                __         
+/\  _`\        /\  _`\ /\_ \    __        /\ \        
+\ \ \L\ \__  __\ \ \L\_\//\ \  /\_\    ___\ \ \/'\    
+ \ \ ,__/\ \/\ \\ \  _\/ \ \ \ \/\ \  /'___\ \ , <    
+  \ \ \/\ \ \_\ \\ \ \/   \_\ \_\ \ \/\ \__/\ \ \\`\  
+   \ \_\ \/`____ \\ \_\   /\____\\ \_\ \____\\ \_\ \_\
+    \/_/  `/___/> \\/_/   \/____/ \/_/\/____/ \/_/\/_/
+             /\___/                                   
+             \/__/       
+
+ My quick hack to get images from my machine to flickr
+ adding some metadata along the way.
+
+
+2019SEP06
+* new code proposed to log uploads to avoid duplication.
+
 2019AUG11
 * IP
 - resize

@@ -2,17 +2,20 @@
 # ~*~ encoding: utf-8 ~*~
 
 
-import secret
-
-
 #------
 # name: config.py
-# date: 2016JAN21
+# date: 2019SEP06
+#       2016JAN21
 # prog: pr
 # desc: secret configuration for flickr oauth 
 # urls: <https://www.flickr.com/help/forum/72157632667188299/?search=user+id> ¬
 #       <http://idgettr.com>
 #------
+
+
+import secret
+
+
 ON  = True
 OFF = False
 DEBUG = OFF
@@ -24,10 +27,11 @@ api_secret = secret.api_secret
 # personal prefs
 data_format = 'json'
 per_page = '10'
-user_name = 'bootload'
-user_id = '27164277@N00'
+user_name = secret.user_name
+user_id = secret.user_id
 
 # default photo info
-photo_id = '23848891000'
+photo_id = secret.photo_id
+
 
 ## vim: ff=unix:ts=4:sw=4:tw=78:noai:expandtab

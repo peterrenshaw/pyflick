@@ -4,9 +4,14 @@
 
 #======
 # name: latest.py
-# date: 2016JAN21
+# date: 2019SEP06
+#       2016JAN21
 # prog: pr
-# desc: get back the latest image from flickr
+# desc: demo program that shows how to use the flickr api to authenticate and
+#       grab the latest image from the individual user account that is
+#       authenticated.
+#   
+#       get back the latest image from flickr
 # urls: 
 #======
 
