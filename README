@@ -13,6 +13,12 @@
  adding some metadata along the way.
 
 
+2019SEP21
+* failure caused by filepaths in tools.py called by upload.py
+- fixed
+- improved upload by sorting files before loop allowing files 
+  to be uploaded in order.
+
 
 2019SEP06
 * new idea to UPDATE

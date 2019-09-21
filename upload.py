@@ -21,6 +21,7 @@
 #       <https://stuvel.eu/flickrapi-doc/4-uploading.html>
 #       <https://www.flickr.com/groups/api/discuss/72157675855698367/?search=app+permissions>
 #       <https://stuvel.eu/flickrapi-doc/3-auth.html>
+#       <https://docs.python.org/2/howto/sorting.html>
 #======
 
 
@@ -66,8 +67,10 @@ def filepath2title(fpn):
 #----------
 class FileWithCallback(object):
     def __init__(self, filename, callback):
+        print("fn <{}>".format(filename))
         self.file = open(filename, 'rb')
         self.callback = callback
+
         # the following attributes and methods are required
         self.len = os.path.getsize(filename)
         self.fileno = self.file.fileno
@@ -77,8 +80,10 @@ class FileWithCallback(object):
         if self.callback:
             self.callback(self.tell() * 100 // self.len)
         return self.file.read(size)
+
 def callback(progress):
-    print(progress)
+    #print(progress)
+    pass
 
 
 #---------
@@ -155,6 +160,8 @@ def main():
             afiles = tools.get_fn_jpg(options.input)
         else:
             afiles = tools.get_filenames(options.input)
+        print("AFILES <{}>".format(afiles))
+
         print("directory: ({}) <{}>".format(len(afiles), afiles))
         if len(afiles) > 1: 
 
@@ -177,7 +184,8 @@ def main():
                 description = ""      
 
             # loop through the list of files
-            for fn in afiles:
+            afs = sorted(afiles)
+            for fn in afs:
                 if fn:
                     if os.path.exists(fn):
                         # process the files one by one

@@ -79,15 +79,18 @@ def get_filenames(filepath, file_type="*.*"):
     file_type to restrict or wild-card the 
     types of files to select.
     """
-    #print("get_filenames.filepath <{}>".format(filepath))
-    filepathdir = os.path.dirname(filepath)
+    #filepathdir = os.path.dirname(filepath)
+    filepathdir = filepath
+
+    print("get_filenames.filepath <{}>".format(filepath))
+    print("get_filenames.filepathdir <{}>".format(filepathdir))
 
     if os.path.isdir(filepathdir):
        fpn = os.path.join(filepathdir, file_type)
        files = glob.glob(fpn)
 
-       print("fpn <{}>".format(fpn))
-       print("get_filenames <{}>".format(files))
+       print("tools.get_filenames.fpn <{}>".format(fpn))
+       print("tools.get_filenames <{}>".format(files))
  
        return files
     else:
