@@ -33,12 +33,17 @@ import config
 import sys
 import os.path
 import flickrapi
-from optparse import OptionParser
+import argparse
 
 
+PROG_NAME = 'upload'
 params = {}
 params['fileobj'] = None
 
+
+   ./upload.py       -i $HOME/work/flickr/2019/2019SEP/2019SEP21/u1/*.png 
+                     -t "bootload 2019 2019SEP 2019SEP21 climate change climatestrip australia temperatures temp hot data warmingstripe 1901 2018"
+                     -d "Warming Stripes for #Australia from 1901-2018 Using data from Berkeley Earth. #ShowYourStripes"
 
 #---------
 # filepath2title: convert filepath (unix) to a filename
@@ -134,53 +139,64 @@ def process(params=params):
 #---------
 def main():
     """cli entry point"""
-    usage = "usage: %prog -i -o [-t -d -j -e]"
-    parser = OptionParser(usage)
+    parser = argparse.ArgumentParser(usage='%(prog)s [options]')
 
     #------ in/out ------
-    parser.add_option("-i", "--input", dest="input",
+    parser.add_argument("-i", "--input", dest="input",
                       help="input source directory")
-    parser.add_option("-j", "--jpg", dest="jpg",
+    parser.add_argument("-j", "--jpg", dest="jpg",
                       action="store_true", 
                       help="process only jpg files")
-    parser.add_option("-d", "--description", dest="description", 
+    parser.add_argument("-d", "--description", dest="description", 
                       help="add a description to the the image")
-    parser.add_option("-e", "--title", dest="title", 
+    parser.add_argument("-e", "--title", dest="title", 
                       help="add a title to the the image")
-    parser.add_option("-t", "--tags", dest="tags", 
+    parser.add_argument("-t", "--tags", dest="tags", 
                       help="add tags to the the image")
+    parser.add_argument("-v", '--version', dest='version',
+                      action="store_true",
+                      help="Version information")
+    #--------- options --------- 
+    args = parser.parse_args()
+    if not args:
+        parser.print_help()
+        sys.exit(1)
 
-    #------ options ------ 
-    options, args = parser.parse_args()  
+    #--------- version ---------
+    if args.version:
+        print("{} {}".format(sys.argv[0], '0.1'))
+        sys.exit(1)
 
-    #------ process ------
-    if options.input:
+
+    #-=------- process ---------
+    if args.input:
         # only load 'jpg' images
-        print("path: <{}>".format(options.input))
-        if options.jpg:
-            afiles = tools.get_fn_jpg(options.input)
+        print("path: <{}>".format(args.input))
+        if args.jpg:
+            afiles = tools.get_fn_jpg(args.input)
         else:
-            afiles = tools.get_filenames(options.input)
-        print("AFILES <{}>".format(afiles))
+            afiles = tools.get_filenames(args.input)
 
+        print("AFILES <{}>".format(afiles))
         print("directory: ({}) <{}>".format(len(afiles), afiles))
+
         if len(afiles) > 1: 
 
             # set tags OR defaults
-            if options.tags:
-                params['tags'] = options.tags
+            if args.tags:
+                params['tags'] = args.tags
             else:
                 tags = ""
 
             # set title OR nothing
-            if options.title:
-                params['title'] = options.title
+            if args.title:
+                params['title'] = args.title
             else:
                 title = ""
 
             # set description OR nothing
-            if options.description:
-                params['description'] = options.description
+            if args.description:
+                params['description'] = args.description
             else:
                 description = ""      
 
@@ -201,14 +217,14 @@ def main():
                     break        
         else:
             # load all files found
-            fpn = os.path.join(os.curdir, options.input)
-            fn = options.input
+            fpn = os.path.join(os.curdir, args.input)
+            fn = args.input
 
             # parameters
             params['filename'] = fpn
             params['title'] = filepath2title(fpn)
-            params['description'] = options.description
-            params['tags'] = options.tags
+            params['description'] = args.description
+            params['tags'] = args.tags
 
             # check filepathname
             if os.path.exists(fpn):
@@ -219,7 +235,7 @@ def main():
                 print("       <{}>".format(fpn))
 
 
-#----- main cli entry point ------
+#--------- main cli entry point ---------
 if __name__ == "__main__":
     main()
 

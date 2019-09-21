@@ -11,6 +11,11 @@
  My quick hack to get images from my machine to flickr
  adding some metadata along the way.
 
+
+   ./upload.py       -i $HOME/work/flickr/2019/2019SEP/2019SEP21/u1/*.png 
+                     -t "bootload 2019 2019SEP 2019SEP21 climate change climatestrip australia temperatures temp hot data warmingstripe 1901 2018"
+                     -d "Warming Stripes for #Australia from 1901-2018 Using data from Berkeley Earth. #ShowYourStripes"
+
 2019SEP06
 * a typical usage pattern
 
@@ -35,5 +40,9 @@ c) uploaded using pyflick
    python3 upload.py -i $HOME/work/flickr/2019/2019SEP/2019SEP05/u1/*.jpg 
                      -d "Doing stuff in the last week of winter. Planting." 
                      -t "bootload 2019 2019SEP 2019SEP05 spring planting outside"
+
+   ./upload.py       -i $HOME/work/flickr/2019/2019SEP/2019SEP21/u1/*.png 
+                     -t "bootload 2019 2019SEP 2019SEP21 climate change climatestrip australia temperatures temp hot data warmingstripe 1901 2018"
+                     -d "Warming Stripes for #Australia from 1901-2018 Using data from Berkeley Earth. #ShowYourStripes"
 
 

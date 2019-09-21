@@ -14,6 +14,8 @@
 
 
 2019SEP21
+* test upload
+* using argparse instead of: from optparse import OptionParser
 * change -t for title to -t tags
 
 2019SEP06
