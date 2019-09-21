@@ -4,7 +4,8 @@
 
 #======
 # name: upload.py
-# date: 2019SEP06
+# date: 2019SEP21
+#       2019SEP06
 #       2019AUG11
 #       2016JAN21
 # prog: pr
@@ -133,7 +134,7 @@ def process(params=params):
 #---------
 def main():
     """cli entry point"""
-    usage = "usage: %prog -i -o [-s]"
+    usage = "usage: %prog -i -o [-t -d -j -e]"
     parser = OptionParser(usage)
 
     #------ in/out ------
@@ -144,9 +145,9 @@ def main():
                       help="process only jpg files")
     parser.add_option("-d", "--description", dest="description", 
                       help="add a description to the the image")
-    parser.add_option("-t", "--title", dest="title", 
+    parser.add_option("-e", "--title", dest="title", 
                       help="add a title to the the image")
-    parser.add_option("-g", "--tags", dest="tags", 
+    parser.add_option("-t", "--tags", dest="tags", 
                       help="add tags to the the image")
 
     #------ options ------ 

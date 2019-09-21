@@ -34,6 +34,6 @@ c) uploaded using pyflick
 
    python3 upload.py -i $HOME/work/flickr/2019/2019SEP/2019SEP05/u1/*.jpg 
                      -d "Doing stuff in the last week of winter. Planting." 
-                     -g "bootload 2019 2019SEP 2019SEP05 spring planting outside"
+                     -t "bootload 2019 2019SEP 2019SEP05 spring planting outside"
 
 

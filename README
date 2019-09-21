@@ -14,6 +14,8 @@
 
 
 2019SEP21
+* update -g to -t and change title to something else
+- difficult to use such a common command unless I can remember it
 * failure caused by filepaths in tools.py called by upload.py
 - fixed
 - improved upload by sorting files before loop allowing files 
