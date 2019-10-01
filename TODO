@@ -13,10 +13,15 @@
  adding some metadata along the way.
 
 
-2019SEP21
-* test upload
-* using argparse instead of: from optparse import OptionParser
-* change -t for title to -t tags
+2019OCT01
+* change main filename
+* add image(s) to albums
+
+
+2019SEP21 (done)
+1 * test upload
+1 * using argparse instead of: from optparse import OptionParser
+1 * change -t for title to -t tags
 
 2019SEP06
 * work that needs to be done:

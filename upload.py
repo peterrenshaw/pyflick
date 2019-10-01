@@ -10,6 +10,14 @@
 #       2016JAN21
 # prog: pr
 # desc: upload a file to flickr via CLI
+#
+#
+#   ./upload.py       -i $HOME/work/flickr/2019/2019SEP/2019SEP21/u1/*.png 
+#                     -t """bootload 2019 2019SEP 2019SEP21 climate change climatestrip australia temperatures 
+#                           temp hot data warmingstripe 1901 2018"""
+#                     -d "Warming Stripes for #Australia from 1901-2018 Using data from Berkeley Earth. #ShowYourStripes"
+#
+#
 # TODO: requires metatag included in process.py
 # algo: 
 #       upload
@@ -40,10 +48,6 @@ PROG_NAME = 'upload'
 params = {}
 params['fileobj'] = None
 
-
-   ./upload.py       -i $HOME/work/flickr/2019/2019SEP/2019SEP21/u1/*.png 
-                     -t "bootload 2019 2019SEP 2019SEP21 climate change climatestrip australia temperatures temp hot data warmingstripe 1901 2018"
-                     -d "Warming Stripes for #Australia from 1901-2018 Using data from Berkeley Earth. #ShowYourStripes"
 
 #---------
 # filepath2title: convert filepath (unix) to a filename

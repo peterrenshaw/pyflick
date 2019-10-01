@@ -13,6 +13,30 @@
  adding some metadata along the way.
 
 
+Usage:
+
+  ./upload.py -i $HOME/work/flickr/2019/2019AUG/2019AUG11/u/*.jpg 
+              -t "bootload 2019 2019AUG 2019AUG11 winter sun blue colde camellia flowers" 
+              -d "One cold winter day in August."
+              -l 
+
+
+2019OCT01
+
+* changes to command line
+
+  optional arguments:
+    -h, --help            show this help message and exit
+    -i INPUT, --input INPUT
+                        input source directory
+    -j, --jpg             process only jpg files
+    -d DESCRIPTION, --description DESCRIPTION
+                        add a description to the the image
+    -e TITLE, --title TITLE
+                        add a title to the the image
+    -t TAGS, --tags TAGS  add tags to the the image
+    -v, --version         Version information
+
 2019SEP21
 * argparse changed from optparse
 * update -g to -t and change title to something else
