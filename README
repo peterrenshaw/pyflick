@@ -18,8 +18,6 @@ Usage:
   ./upload.py -i $HOME/work/flickr/2019/2019AUG/2019AUG11/u/*.jpg 
               -t "bootload 2019 2019AUG 2019AUG11 winter sun blue colde camellia flowers" 
               -d "One cold winter day in August."
-              -l 
-
 
 2019OCT01
 
