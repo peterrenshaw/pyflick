@@ -136,6 +136,65 @@ def process(params=params):
         f = None
         sys.exit(1)
 
+def process_batch(afiles, params=params):
+    """
+    upload a whole lot of files at once with one connection, not open-close
+    for each one
+    """
+    print("user <{}> ({})".format(config.user_name, config.user_id))
+    print("authenticating...")
+    flickr = login.authenticate()
+
+    # loop through sorted list of files
+    afs = sorted(afiles)
+    count = len(afs)
+    for fn in afs:
+        if fn:
+           if os.path.exists(fn):
+                # process the files one by one
+                params['filename'] = fn
+                params['title'] = filepath2title(fn)
+            
+                # process all the files
+                if flickr:
+                    print("ok")
+                    if params['filename']: 
+                        print("processing <{}>".format(params['filename']))
+
+                        params['title'] = filepath2title(params['filename'])
+                        if not params['tags']: params['tags'] = """2019 2019AUG 2019AUG11"""
+                        if not params['description']: params['description'] = ""
+
+                        params['fileobj'] = FileWithCallback(params['filename'], callback)
+                        rsp = flickr.upload(fileobj=params['fileobj'],
+                                            filename=params['filename'],
+                                            title=params['title'],
+                                            description=params['description'],
+                                            tags=params['tags'])
+                        print("status: <{}>".format(rsp)) 
+                    else:
+                        print("Warning: no file found")
+                        flickr = None
+                        pass
+                else:
+                    print("Error: Authentication problems")
+                    f = None
+                    flickr = None
+                    sys.exit(1)
+
+           # does filenamepath exist?
+           else:
+               print("warning: the source file is not found")
+               print("         <{}>".format(fpn))
+               pass
+        # is there a file to process?
+        else:
+            break        
+    
+   # done
+   flickr = None
+   print("batch ({}) done".format(count))
+
 
 #---------
 # desc: main cli method
@@ -185,7 +244,6 @@ def main():
         print("directory: ({}) <{}>".format(len(afiles), afiles))
 
         if len(afiles) > 1: 
-
             # set tags OR defaults
             if args.tags:
                 params['tags'] = args.tags
@@ -204,21 +262,10 @@ def main():
             else:
                 description = ""      
 
-            # loop through the list of files
-            afs = sorted(afiles)
-            for fn in afs:
-                if fn:
-                    if os.path.exists(fn):
-                        # process the files one by one
-                        params['filename'] = fn
-                        params['title'] = filepath2title(fn)
-                        process(params)
-                    else:
-                        print("warning: the source file is not found")
-                        print("         <{}>".format(fpn))
-                        pass
-                else:
-                    break        
+            # authenticate ONCE, then upload
+            # looped list of files
+            process_batch(afiles, params)
+
         else:
             # load all files found
             fpn = os.path.join(os.curdir, args.input)
@@ -233,6 +280,8 @@ def main():
             # check filepathname
             if os.path.exists(fpn):
                 print("fpn <{}>".format(fpn))
+
+                # process one file
                 process(params)
             else:
                 print("error: the source file is not found")
