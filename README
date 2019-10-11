@@ -19,6 +19,10 @@ Usage:
               -t "bootload 2019 2019AUG 2019AUG11 winter sun blue colde camellia flowers" 
               -d "One cold winter day in August."
 
+2019OCT11
+* modified upload.py to authenticate once for multiple files
+- requires refactoring, maybe some testing. 
+
 2019OCT01
 
 * changes to command line
