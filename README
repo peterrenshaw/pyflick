@@ -24,6 +24,7 @@ Usage:
 
 
 2019OCT12
+* added README, LICENSE, TODO, USAGE
 * looking for hurdles to move code to new project.
 - changes made to authentication in:
 
