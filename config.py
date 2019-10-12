@@ -18,7 +18,7 @@ import secret
 
 ON  = True
 OFF = False
-DEBUG = OFF
+DEBUG = ON
 
 # flickr generated
 api_key = secret.api_key 

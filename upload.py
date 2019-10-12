@@ -103,10 +103,11 @@ def callback(progress):
 # TODO: find todays date in YYYY,YYYYMMM format and add as 
 #       default tags
 #---------
-def process(params=params):
+def process(flickr_login, params=params):
     print("user <{}> ({})".format(config.user_name, config.user_id))
     print("authenticating...")
-    flickr = login.authenticate()
+    #flickr = login.authenticate()
+    flickr = flickr_login
 
     if flickr:
         print("ok")
@@ -136,14 +137,14 @@ def process(params=params):
         f = None
         sys.exit(1)
 
-def process_batch(afiles, params=params):
+def process_batch(flickr_login, afiles, params=params):
     """
     upload a whole lot of files at once with one connection, not open-close
     for each one
     """
     print("user <{}> ({})".format(config.user_name, config.user_id))
     print("authenticating...")
-    flickr = login.authenticate()
+    flickr = flickr_login
 
     # loop through sorted list of files
     afs = sorted(afiles)
@@ -191,9 +192,9 @@ def process_batch(afiles, params=params):
         else:
             break        
     
-   # done
-   flickr = None
-   print("batch ({}) done".format(count))
+    # done
+    flickr = None
+    print("batch ({}) done".format(count))
 
 
 #---------
@@ -264,7 +265,9 @@ def main():
 
             # authenticate ONCE, then upload
             # looped list of files
-            process_batch(afiles, params)
+            flickr = login.authenticate()
+            process_batch(flickr, afiles, params)
+            flickr = None
 
         else:
             # load all files found
@@ -282,7 +285,9 @@ def main():
                 print("fpn <{}>".format(fpn))
 
                 # process one file
-                process(params)
+                flickr = login.authenticate()
+                process(flickr, params)
+                flickr = None
             else:
                 print("error: the source file is not found")
                 print("       <{}>".format(fpn))

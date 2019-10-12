@@ -19,6 +19,19 @@ Usage:
               -t "bootload 2019 2019AUG 2019AUG11 winter sun blue colde camellia flowers" 
               -d "One cold winter day in August."
 
+  nb: updated ip for gitolite? 
+      try 'git remote set-url origin git@ip.address:pyflick'
+
+
+2019OCT12
+* looking for hurdles to move code to new project.
+- changes made to authentication in:
+
+  upload.process()
+  upload.process_batch() 
+
+-now do authentication outside 
+
 2019OCT11
 * modified upload.py to authenticate once for multiple files
 - requires refactoring, maybe some testing. 
