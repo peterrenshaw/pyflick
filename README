@@ -23,13 +23,9 @@ Usage:
       try 'git remote set-url origin git@ip.address:pyflick'
 
 2019OCT26
-* ok, install of Pillow required. 
+* ok, install of flickrapi required. 
 - new TODO tasks
 * sudo pip install flickrapi
-
-  <https://python-pillow.org>
-  <https://pillow.readthedocs.io/en/latest/installation.html>
-
 - lets try again
 
 * problems 
