@@ -1,10 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # ~*~ encoding: utf-8 ~*~
 
 
 #======
 # name: upload.py
-# date: 2019SEP21
+# date: 2019OCT26
+#       2019SEP21
 #       2019SEP06
 #       2019AUG11
 #       2016JAN21
@@ -106,7 +107,6 @@ def callback(progress):
 def process(flickr_login, params=params):
     print("user <{}> ({})".format(config.user_name, config.user_id))
     print("authenticating...")
-    #flickr = login.authenticate()
     flickr = flickr_login
 
     if flickr:
