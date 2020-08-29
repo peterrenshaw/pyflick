@@ -1,0 +1,27 @@
+
+ ____           ____    ___                __         
+/\  _`\        /\  _`\ /\_ \    __        /\ \        
+\ \ \L\ \__  __\ \ \L\_\//\ \  /\_\    ___\ \ \/'\    
+ \ \ ,__/\ \/\ \\ \  _\/ \ \ \ \/\ \  /'___\ \ , <    
+  \ \ \/\ \ \_\ \\ \ \/   \_\ \_\ \ \/\ \__/\ \ \\`\  
+   \ \_\ \/`____ \\ \_\   /\____\\ \_\ \____\\ \_\ \_\
+    \/_/  `/___/> \\/_/   \/____/ \/_/\/____/ \/_/\/_/
+             /\___/                                   
+             \/__/       
+
+
+
+2019NOV03
+* problem with empty description
+- description option fails if empty
+
+   processing </Users/pr/work/flickr/2019/2019NOV/2019NOV03/u2/2019NOV031732160.295.jpg>
+    Traceback (most recent call last):
+    File "./upload.py", line 298, in <module>
+      main()
+    File "./upload.py", line 269, in main
+    process_batch(flickr, afiles, params)
+    File "./upload.py", line 167, in process_batch
+      if not params['description']: params['description'] = ""
+    KeyError: 'description'
+
