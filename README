@@ -22,6 +22,16 @@ Usage:
   nb: updated ip for gitolite? 
       try 'git remote set-url origin git@ip.address:pyflick'
 
+2020AUG29
+* fired up the upload & it failed. 
+- some half-arsed attempt to start something
+- commented out
+
+2019NOV03
+* CLI argument bug in BUGS
+- empty description fails
+
+
 2019OCT26
 * ok, install of flickrapi required. 
 - new TODO tasks
